@@ -8,4 +8,4 @@ To use, simple copy & paste this one-liner:
 ```bash
 wget https://github.com/vtholde/nv-mixedx11/releases/download/stable/nvidia-mixedrefresh.sh && chmod +x nvidia-mixedrefresh.sh && ./nvidia-mixedrefresh.sh
 ```
-**NOTE":** In some cases, this approach does come with it's own limitations. When playing video's on your secondary monitor (or doing other things that cause many refreshes), performance on your high-refresh rate monitor *may* suffer. If the script doesn't work properly for you, consider switching to [wayland](https://wayland.freedesktop.org/)
+**NOTE:** In some cases, this approach does come with it's own limitations. When playing video's on your secondary monitor (or doing other things that cause many refreshes), performance on your high-refresh rate monitor *may* suffer. If the script doesn't work properly for you, consider switching to [wayland](https://wayland.freedesktop.org/)
