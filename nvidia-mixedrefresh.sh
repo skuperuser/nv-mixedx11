@@ -3,15 +3,14 @@ if [ $(id -u) = 0 ]; then
   exit 1
 fi
 
-echo "This script aims to make mixed refresh rate monitors work flawlessly on Nvidia + X11"
+echo "This script aims to make mixed refresh rate monitors work at their native refresh rate on Nvidia + X11"
 echo ""
 echo "Please do the following:"
 echo "1. Open NVIDIA X Server settings"
-echo "2. Go to X Server XVideo Settings > Sync to your high refresh rate monitor"
 echo "3. Go to OpenGL Settings > Uncheck Allow Flipping"
 echo "4. Click 'Quit' in the bottom right corner and confirm"
 echo ""
-echo "After completing the steps above, press enter to install. A startup task will be run automatically on every login."
+echo "After completing the steps above, press enter to let this script do the rest. A startup task will be run automatically on every login."
 read a
 echo "Writing to file $HOME/.nvidia-mixedrefresh.sh ..."
 
@@ -26,7 +25,7 @@ to_write='
 
 nvidia-settings --load-config-only
 
-# Enables force composition pipeline (fixes tearing on secondary monitors)
+# Enables force composition pipeline (reduces tearing when allow flipping is disabled)
 s="$(nvidia-settings -q CurrentMetaMode -t)"
 
 if [[ "${s}" != "" ]]; then
@@ -41,13 +40,8 @@ $to_write
 EOF
 
 
-echo "updating .profile ..."
 echo '. "$HOME/.nvidia-mixedrefresh.sh"' >> "$HOME/.profile"
-
-echo "setting permissions ..."
 chmod +x "$HOME/.nvidia-mixedrefresh.sh"
-
-echo "executing startup task ..."
 . "$HOME/.nvidia-mixedrefresh.sh" > /dev/null 2>&1
 
-echo "done."
+sudo python3 detectmonitor.py
