@@ -66,7 +66,7 @@ else:
     print(result)
     screen = input("Please insert the identifier of your highest refresh-rate monitor. (e.g. DP-0 or HDMI-1)\n>> ")
 
-subprocess.run(f"bash -c echo '__GL_SYNC_DISPLAY_DEVICE={screen}' >> /etc/environment", shell=True, capture_output=True, text=True)
+subprocess.run(f"bash -c 'sudo echo __GL_SYNC_DISPLAY_DEVICE={screen}' >> /etc/environment", shell=True, capture_output=True, text=True)
 print('Done. ENTER to reboot and finish setup.')
 input("")
 try:
