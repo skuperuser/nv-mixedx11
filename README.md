@@ -6,6 +6,6 @@ This script aims to fix this (in a somewhat hacky way) by disabling 'Allow Flipp
 
 To use, simple copy & paste this one-liner:
 ```bash
-git clone https://github.com/vtholde/nv-mixedx11 && cd nv-mixed11 && chmod +x nvidia-mixedrefresh.sh && ./nvidia-mixedrefresh.sh
+git clone https://github.com/vtholde/nv-mixedx11 && cd nv-mixedx11 && chmod +x nvidia-mixedrefresh.sh && ./nvidia-mixedrefresh.sh
 ```
 **NOTE:** In some cases, this approach does come with it's own limitations. When playing video's on your secondary monitor (or doing other things that cause many refreshes), performance on your high-refresh rate monitor *may* suffer. If the script doesn't work properly for you, consider switching to [wayland](https://wayland.freedesktop.org/)
