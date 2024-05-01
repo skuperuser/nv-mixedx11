@@ -63,7 +63,7 @@ if find_rates():
     
 else:
     print("An unknown error occurred determining which monitor has the highest refresh rate. \n\n ")
-    print(result)
+    print(result.stdout)
     screen = input("Please insert the identifier of your highest refresh-rate monitor. (e.g. DP-0 or HDMI-1)\n>> ")
 
 subprocess.run(f"bash -c 'sudo echo __GL_SYNC_DISPLAY_DEVICE={screen}' >> /etc/environment", shell=True, capture_output=True, text=True)
